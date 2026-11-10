@@ -1,59 +1,58 @@
-# TarefasNg
+# Tarefas NG - Lista de Tarefas em Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.5.
+**Universidade FUMEC**
+Curso: Ciência da Computação
+Disciplina: Desenvolvimento Web Front-End
+Professor: Msc. Dângelo Silva Miranda
+Aluno: Nycollas de Souza Baldim (RA:1A291032644)
 
-## Development server
+## Sobre
 
-To start a local development server, run:
+Aplicação web para gerenciar uma lista de tarefas, desenvolvida com **Angular** e **Bootstrap**. Permite listar, cadastrar, editar e deletar tarefas. Os dados ficam armazenados em memória (array no service), então são perdidos ao recarregar a página.
+
+## Funcionalidades
+
+- **Home**: exibe um card para cada tarefa (prioridade, nome e data de vencimento), com botões Editar e Deletar, botão Adicionar e a data atual no topo.
+- **Tarefa nova**: formulário com nome, prioridade, data limite e categoria (escolhida por botões: doméstico, pessoal ou trabalho).
+- **Tarefa atualiza**: formulário preenchido com os dados da tarefa para edição.
+- **Header**: cabeçalho presente em todas as páginas.
+
+## Tecnologias
+
+- Angular (standalone components, Router, FormsModule)
+- TypeScript
+- Bootstrap e Bootstrap Icons
+
+## Estrutura do projeto
+
+```
+src/app/
+├── components/header/        # Cabeçalho
+├── models/tarefa.model.ts    # Interface ITarefa e createITarefa()
+├── pages/
+│   ├── home/                 # Listagem das tarefas
+│   ├── tarefa-nova/          # Cadastro
+│   └── tarefa-atualiza/      # Edição
+├── services/tarefa.ts        # TarefaService (CRUD em array)
+├── app.routes.ts             # Rotas
+└── app.ts / app.html         # Componente raiz
+```
+
+## Conceitos aplicados
+
+- **Service com injeção de dependência** (`@Injectable`) para centralizar os dados.
+- **Two-way data-binding** com `[(ngModel)]` nos formulários.
+- **`*ngFor`** para listar as tarefas.
+- **Rotas** com parâmetro (`tarefa-atualiza/:id`) e navegação via `routerLink` e `Router`.
+- **Interface TypeScript** para padronizar a estrutura da tarefa.
+
+## Como executar
+
+Pré-requisito: Node.js (versão LTS) instalado.
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Acesse `http://localhost:4200`.
